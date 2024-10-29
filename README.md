@@ -1,7 +1,7 @@
 A minimal package for printing some Ansi Color
 
 ```rust
-use ansi_color::*;
+use minimal_ansi_color::*;
 
 println!("{}I'm green{}", AnsiColor::GREEN_FOREGROUND, AnsiColor::RESET);
 println!("{}I'm red{}", AnsiColor::new_foreground(AnsiColorKind::Red), AnsiColor::RESET);
