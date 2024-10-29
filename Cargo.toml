@@ -1,5 +1,5 @@
 [package]
-name = "ansi_color"
+name = "minimal_ansi_color"
 version = "0.1.0"
 edition = "2021"
 license = "MIT OR Apache-2.0"
@@ -8,5 +8,6 @@ repository = "https://github.com/Thomas-Mewily/ansi_color"
 keywords = ["ansi", "color"]
 categories = ["command-line-interface"]
 description = "Ansi Color"
+authors = ["Mewily"]
 
 [dependencies]

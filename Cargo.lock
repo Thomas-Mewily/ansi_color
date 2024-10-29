@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "ansi_color"
+name = "minimal_ansi_color"
 version = "0.1.0"

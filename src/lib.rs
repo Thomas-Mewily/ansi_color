@@ -1,4 +1,12 @@
-//! Define some Ansi Color
+//! A minimal package for printing some Ansi Color
+//! 
+//! ```rust
+//! use ansi_color::*;
+//! 
+//! println!("{}I'm green{}", AnsiColor::GREEN_FOREGROUND, AnsiColor::RESET);
+//! println!("{}I'm red{}", AnsiColor::new_foreground(AnsiColorKind::Red), AnsiColor::RESET);
+//! println!("{}White on magenta background{}", AnsiColor::new(AnsiColorKind::Magenta, AnsiColorLayer::Background), AnsiColor::RESET);
+//! ```
 
 use std::fmt::{Debug, Display};
 
@@ -54,10 +62,12 @@ impl AnsiColor
     pub const WHITE_BACKGROUND  : AnsiColorStr = "\x1b[47m";
     pub const GREY_BACKGROUND   : AnsiColorStr = "\x1b[100m";
     
-    pub const COLOR_BLACK_ON_WHITE : AnsiColorStr   = "\x1b[30m\x1b[47m";
-    pub const COLOR_RESET: AnsiColorStr = "\x1b[37m\x1b[40m";
+    pub const BLACK_ON_WHITE : AnsiColorStr   = "\x1b[30m\x1b[47m";
+    pub const RESET: AnsiColorStr = "\x1b[37m\x1b[40m";
 
     pub fn new(color : AnsiColorKind, layer : AnsiColorLayer) -> Self { Self { color, layer }}
+    pub fn new_foreground(color : AnsiColorKind) -> Self { Self::new(color, AnsiColorLayer::Foreground) }
+    pub fn new_background(color : AnsiColorKind) -> Self { Self::new(color, AnsiColorLayer::Background) }
 
     pub fn color(&self) -> AnsiColorKind  { self.color }
     pub fn set_color(&mut self, color : AnsiColorKind) -> &mut Self  { self.color = color; self }
