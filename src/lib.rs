@@ -1,7 +1,7 @@
 //! A minimal package for printing some Ansi Color
 //! 
 //! ```rust
-//! use ansi_color::*;
+//! use minimal_ansi_color::*;
 //! 
 //! println!("{}I'm green{}", AnsiColor::GREEN_FOREGROUND, AnsiColor::RESET);
 //! println!("{}I'm red{}", AnsiColor::new_foreground(AnsiColorKind::Red), AnsiColor::RESET);
@@ -77,6 +77,7 @@ impl AnsiColor
     pub fn set_layer(&mut self, layer : AnsiColorLayer) -> &mut Self  { self.layer = layer; self }
     pub fn with_layer(mut self, layer : AnsiColorLayer) -> Self  { self.set_layer(layer); self }
 
+    /// Get the ansi color code
     pub fn get_str(&self) -> AnsiColorStr
     {
         match self.layer 
