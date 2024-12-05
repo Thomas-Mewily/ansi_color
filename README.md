@@ -1,5 +1,7 @@
 A minimal package for using the Ansi Color :
 
+Provides optional support for [Serde](https://docs.rs/serde/latest/serde/) (serialization / deserialization) when the "serde" feature is enabled.
+
 ```rust
 use minimal_ansi_color::*;
 
