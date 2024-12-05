@@ -11,3 +11,7 @@ description = "Ansi Color"
 authors = ["Mewily"]
 
 [dependencies]
+serde = { version = "1.0.215", features = ["derive"], optional = true }
+
+[features]
+serde = ["dep:serde"]

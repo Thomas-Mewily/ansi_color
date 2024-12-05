@@ -1,5 +1,7 @@
 //! A minimal package for printing some Ansi Color
 //! 
+//! Provides optional support for [Serde](https://docs.rs/serde/latest/serde/) (serialization / deserialization) when the "serde" feature is enabled.
+//! 
 //! ```rust
 //! use minimal_ansi_color::*;
 //! 
@@ -10,6 +12,10 @@
 
 use std::fmt::{Debug, Display};
 
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
+
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Clone, Copy, PartialEq, Eq, Debug, Hash)]
 pub enum AnsiColorKind
 {
@@ -24,6 +30,7 @@ pub enum AnsiColorKind
     Grey,
 }
 
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Clone, Copy, PartialEq, Eq, Debug, Hash)]
 pub enum AnsiColorLayer 
 {
@@ -31,6 +38,7 @@ pub enum AnsiColorLayer
     Background,
 }
 
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[derive(Clone, Copy, PartialEq, Eq, Debug, Hash)]
 pub struct AnsiColor
 {
