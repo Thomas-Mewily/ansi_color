@@ -5,7 +5,7 @@
 //! ```rust
 //! use minimal_ansi_color::*;
 //! 
-//! println!("{}I'm green{}", AnsiColor::GREEN_FOREGROUND, AnsiColor::RESET);
+//! println!("{}I'm green{}", AnsiColor::GREEN, AnsiColor::RESET);
 //! println!("{}I'm red{}", AnsiColor::new_foreground(AnsiColorKind::Red), AnsiColor::RESET);
 //! println!("{}White on magenta background{}", AnsiColor::new(AnsiColorKind::Magenta, AnsiColorLayer::Background), AnsiColor::RESET);
 //! ```
@@ -50,6 +50,17 @@ pub type AnsiColorStr = &'static str;
 
 impl AnsiColor
 {
+    pub const BLACK             : AnsiColorStr = "\x1b[30m";
+    pub const RED               : AnsiColorStr = "\x1b[31m";
+    pub const GREEN             : AnsiColorStr = "\x1b[32m";
+    pub const YELLOW            : AnsiColorStr = "\x1b[33m";
+    pub const BLUE              : AnsiColorStr = "\x1b[34m";
+    pub const MAGENTA           : AnsiColorStr = "\x1b[35m";
+    pub const CYAN              : AnsiColorStr = "\x1b[36m";
+    pub const WHITE             : AnsiColorStr = "\x1b[37m";
+    pub const GREY              : AnsiColorStr = "\x1b[90m";
+    
+    // Same but suffixed by FOREGROUND
     pub const BLACK_FOREGROUND  : AnsiColorStr = "\x1b[30m";
     pub const RED_FOREGROUND    : AnsiColorStr = "\x1b[31m";
     pub const GREEN_FOREGROUND  : AnsiColorStr = "\x1b[32m";
@@ -59,7 +70,7 @@ impl AnsiColor
     pub const CYAN_FOREGROUND   : AnsiColorStr = "\x1b[36m";
     pub const WHITE_FOREGROUND  : AnsiColorStr = "\x1b[37m";
     pub const GREY_FOREGROUND   : AnsiColorStr = "\x1b[90m";
-    
+
     pub const BLACK_BACKGROUND  : AnsiColorStr = "\x1b[40m";
     pub const RED_BACKGROUND    : AnsiColorStr = "\x1b[41m";
     pub const GREEN_BACKGROUND  : AnsiColorStr = "\x1b[42m";
